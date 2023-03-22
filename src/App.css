@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Zilla+Slab:300,400");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #201c29;
+  height: 100vh;
+  width: 100vw;
+  color: #497081;
+  font-family: "zilla slab", serif;
+}
+
+#root {
+  text-align: center;
+  background-color: whitesmoke;
+  min-width: 25%;
+  max-width: 25%;
+  min-height: 60vh;
+}
+
+.App {
+  margin: 20px;
+}
+
+ul {
+  list-style: none;
+  padding-right: 40px;
+}
+
+li {
+  word-wrap: break-word;
+}
+
+.deleteButton {
+  border: none;
+  background-color: whitesmoke;
+  color: red;
+}
+
+.tasksInput {
+  padding: 5px 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-right: 5px;
+  width: 40%;
+}
+
+.tasksButton {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 700;
+  transition: transform 200ms, background 200ms;
+}
+
+.tasksButton:hover {
+  transform: translateY(-2px);
+}
