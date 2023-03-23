@@ -9,12 +9,73 @@
       content="Web site created using create-react-app"
     />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
     <title>Todo List</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="text/babel">
+      import React, { useState } from "react";
+      import ReactDOM from "react-dom/client";
+      import "../src/index.css";
+      import "../src/App.css";
+
+      function App() {
+        const [newTask, setNewTask] = useState("");
+        const [tasks, setTasks] = useState([]);
+
+        const addTask = () => {
+          if (!newTask) {
+            alert("You need to enter a task.");
+            return;
+          }
+
+          const task = {
+            key: Math.floor(Math.random() * 10000),
+            value: newTask,
+          };
+
+          setTasks((prev) => [...prev, task]);
+          setNewTask("");
+        };
+
+        const deleteTask = (key) => {
+          const tasksArr = tasks.filter((task) => task.key !== key);
+          setTasks(tasksArr);
+        };
+
+        return (
+          <div className="App">
+            <h1>Todo List</h1>
+            <input
+              className="tasksInput"
+              type="text"
+              placeholder="Add task"
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+            ></input>
+            <button className="tasksButton" onClick={() => addTask()}>
+              Add
+            </button>
+            <ul>
+              {tasks.map((task) => {
+                return (
+                  <li key={task.key}>
+                    {task.value}{" "}
+                    <button
+                      className="deleteButton"
+                      onClick={() => deleteTask(task.key)}
+                    >
+                      X
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
   </body>
 </html>
