@@ -20,6 +20,23 @@ function App() {
     setNewTask("");
   };
 
+  const enterTask = () => {
+    if (event.key === "Enter") {
+      if (!newTask) {
+        alert("You need to enter a task.");
+        return;
+      }
+
+      const task = {
+        key: Math.floor(Math.random() * 10000),
+        value: newTask,
+      };
+
+      setTasks((prev) => [...prev, task]);
+      setNewTask("");
+    }
+  };
+
   const deleteTask = (key) => {
     const tasksArr = tasks.filter((task) => task.key !== key);
     setTasks(tasksArr);
@@ -34,6 +51,7 @@ function App() {
         placeholder="Add task"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
+        onKeyPress={() => enterTask()}
       ></input>
       <button className="tasksButton" onClick={() => addTask()}>
         Add

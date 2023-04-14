@@ -36,6 +36,7 @@ li {
   border: none;
   background-color: whitesmoke;
   color: red;
+  font-weight: 1000;
 }
 
 .tasksInput {
