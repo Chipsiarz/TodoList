@@ -30,6 +30,10 @@ ul {
 
 li {
   word-wrap: break-word;
+  width: 100%;
+  font-size: 1.2em;
+  margin: 6px 0;
+  user-select: none;
 }
 
 .deleteButton {
@@ -64,4 +68,9 @@ li {
 
 .tasksButton:hover {
   transform: translateY(-2px);
+}
+
+.done {
+  color: red;
+  text-decoration: line-through;
 }
