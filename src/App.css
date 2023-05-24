@@ -41,6 +41,7 @@ li {
   background-color: whitesmoke;
   color: red;
   font-weight: 1000;
+  float: right;
 }
 
 .tasksInput {
