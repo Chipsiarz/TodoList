@@ -20,27 +20,31 @@ function App() {
     setNewTask("");
   };
 
-  const enterTask = () => {
-    if (event.key === "Enter") {
-      if (!newTask) {
-        alert("You need to enter a task.");
-        return;
-      }
+  // const enterTask = () => {
+  //   if (event.key === "Enter") {
+  //     if (!newTask) {
+  //       alert("You need to enter a task.");
+  //       return;
+  //     }
 
-      const task = {
-        key: Math.floor(Math.random() * 10000),
-        value: newTask,
-      };
+  //     const task = {
+  //       key: Math.floor(Math.random() * 10000),
+  //       value: newTask,
+  //     };
 
-      setTasks((prev) => [...prev, task]);
-      setNewTask("");
-    }
-  };
+  //     setTasks((prev) => [...prev, task]);
+  //     setNewTask("");
+  //   }
+  // };
 
   const deleteTask = (key) => {
     const tasksArr = tasks.filter((task) => task.key !== key);
     setTasks(tasksArr);
   };
+
+  // const taskDone = () => {
+  //   event.target.classList.toggle("done");
+  // };
 
   return (
     <div className="App">
@@ -51,7 +55,7 @@ function App() {
         placeholder="Add task"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
-        onKeyPress={() => enterTask()}
+        //onKeyPress={() => enterTask()}
       ></input>
       <button className="tasksButton" onClick={() => addTask()}>
         Add
@@ -59,7 +63,10 @@ function App() {
       <ul>
         {tasks.map((task) => {
           return (
-            <li key={task.key}>
+            <li
+              key={task.key}
+              //onClick={() => taskDone()}
+            >
               {task.value}{" "}
               <button
                 className="deleteButton"
